@@ -11,6 +11,11 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: echo world
+  print_var:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: echo ${MYVAR}
 workflows:
   welcome:
     jobs:
@@ -18,3 +23,4 @@ workflows:
       - print_world:
           requires:
             - print_hello
+      - print_var
